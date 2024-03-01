@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { TechBadge } from '../../tech'
+import { TechBadge } from '../../../tech'
 import { Link } from '@/app/components/link'
 import { HiArrowNarrowRight } from 'react-icons/hi'
 
@@ -8,8 +8,8 @@ export const ProjectCard = () => {
     <div className="flex gap-6 lg:gap-12 flex-col lg:flex-row">
       <div className="w-full h-full">
         <Image
-          width={320}
-          height={204}
+          width={420}
+          height={304}
           alt="Thumbnail do projeto BooWise"
           src="/images/i-2.jpg"
           className="w-full h-[200px] sm:h-[300px] lg:w-[420px] lg:min-h-full object-cover rounded-lg"

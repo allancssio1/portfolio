@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { HorizontalDivider } from '../../divider/horizontal'
-import { SectionTitle } from '../../section-title'
+import { HorizontalDivider } from '../../../divider/horizontal'
+import { SectionTitle } from '../../../section-title'
 import { ProjectCard } from './project-card'
 import { HiArrowNarrowRight } from 'react-icons/hi'
 
