@@ -47,7 +47,7 @@ export const HeroSection = () => {
 
           <div className="flex flex-wrap gap-x-2 gap-y-3 lg:max-w-[340px]">
             {Array.from({ length: 5 }).map((_, index) => (
-              <TechBadge name="Nodejs" />
+              <TechBadge name="Nodejs" key={`${index}`} />
             ))}
           </div>
           <div className="mt-6 lg:mt-10 flex items-center sm:gap-5  flex-col sm:flex-row">
@@ -61,6 +61,7 @@ export const HeroSection = () => {
                   href={url}
                   key={`contact-${title}`}
                   target="_blank"
+                  rel="noreferrer"
                 >
                   {icon}
                 </a>
