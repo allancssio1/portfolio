@@ -10,6 +10,8 @@ import {
   TbBrandGmail,
   TbBrandWhatsapp,
 } from 'react-icons/tb'
+import { HomePageInfo } from '@/app/types/types-infos'
+import { RichText } from '@/app/components/rich-text'
 
 const MOCK_CONTACTS = [
   {
@@ -34,6 +36,17 @@ const MOCK_CONTACTS = [
   },
 ]
 
+//   {
+//   data: {
+//     page: {
+//       introTechnologies,
+//       introduction,
+//       knownTech,
+//       profilePricture,
+//       socials,
+//     },
+//   },
+// }: HomePageInfo
 export const HeroSection = () => {
   const handleContact = () => {
     const contactSection = document.querySelector('#contact')
@@ -47,11 +60,9 @@ export const HeroSection = () => {
         <div className="w-full lg:max-w-[530px]">
           <p className="font-mono text-emerald-400">Olá, meu nome é</p>
           <h2 className="text-4xl font-medium mt-2">Allan Freitas</h2>
-          <p className="text-gray-400 my-6 font-medium mt-2">
-            Sou desenvolvedor back-end. Com mais de 2 anos de experiência no
-            desenvolvimento web utilizando do que há de mais atual no mercado
-            para agregar valor aos clientes.
-          </p>
+          <div className="text-gray-400 my-6 font-medium mt-2">
+            {/* <RichText content={introduction.raw} /> */}
+          </div>
 
           <div className="flex flex-wrap gap-x-2 gap-y-3 lg:max-w-[340px]">
             {Array.from({ length: 5 }).map((_, index) => (

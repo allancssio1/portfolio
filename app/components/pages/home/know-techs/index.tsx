@@ -42,10 +42,11 @@ export const KnowTechs = () => {
           return (
             <KnowTech
               tech={{
-                icon: icon,
-                name: name,
-                startDate: startDate,
+                icon,
+                name,
+                startDate,
               }}
+              key={`${name}`}
               color={color}
             />
           )
