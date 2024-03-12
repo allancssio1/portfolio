@@ -4,6 +4,7 @@ type QueryProps = {
 }
 
 export const fetchHygraphQuery = async ({ query, method }: QueryProps) => {
+  // const response = {}
   const response = await fetch(process.env.HYGRAPH_URL!, {
     method,
     headers: {
@@ -18,6 +19,6 @@ export const fetchHygraphQuery = async ({ query, method }: QueryProps) => {
   })
 
   const data = await response.json()
-  console.log('🚀 ~ fetchHygraphQuery ~ data:', data)
+  // console.log('🚀 ~ fetchHygraphQuery ~ data:', data.page)
   return data
 }

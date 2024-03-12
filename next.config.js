@@ -5,6 +5,11 @@ const nextConfig = {
   },
   images: {
     domains: ['media.graphassets.com'],
+    // domains: ['app-sa-east-1.hygraph.com'],
+    // remotePatterns: {
+    //   protocol: 'https',
+    //   hostname: 'app-sa-east-1.hygraph.com/',
+    // },
   },
 }
 

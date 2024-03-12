@@ -11,12 +11,11 @@ const getPageData = async (): Promise<HomePageInfo> => {
 }
 
 export default async function Home() {
-  // const { data } = await getPageData()
+  const { data } = await getPageData()
 
   return (
     <>
-      {/* <HeroSection data={data} /> */}
-      <HeroSection />
+      <HeroSection data={data} />
       <KnowTechs />
       <HighlightedProjects />
       <WorkExperience />

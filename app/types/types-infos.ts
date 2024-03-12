@@ -18,7 +18,7 @@ export type HomePageInfo = {
         raw: RichTextContent
       }
       introTechnologies: KnownTech[]
-      profilePricture: {
+      profilePicture: {
         url: string
       }
       socials: Social[]
