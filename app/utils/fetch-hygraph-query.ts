@@ -19,6 +19,6 @@ export const fetchHygraphQuery = async ({ query, method }: QueryProps) => {
   })
 
   const data = await response.json()
-  // console.log('🚀 ~ fetchHygraphQuery ~ data:', data.page)
+
   return data
 }

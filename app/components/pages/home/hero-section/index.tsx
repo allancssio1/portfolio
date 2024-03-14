@@ -7,10 +7,7 @@ import { HiArrowNarrowRight } from 'react-icons/hi'
 import { HomePageInfo } from '@/app/types/types-infos'
 import { RichText } from '@/app/components/rich-text'
 import { CMSIcon } from '@/app/components/cms-icon'
-
-type MyLoaderProps = {
-  src: string
-}
+import { myLoader } from '@/app/utils/myLoaderSVG'
 
 export const HeroSection = ({
   data: {
@@ -22,7 +19,6 @@ export const HeroSection = ({
 
     if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' })
   }
-  const myLoader = ({ src }: MyLoaderProps) => src
 
   return (
     <section className="w-full lg:h-[755px] bg-hero-image bg-cover bg-center bg-no-repeat flex flex-col justify-end pb-10 sm:pb-32 py-32 lg:pb-[110px]">

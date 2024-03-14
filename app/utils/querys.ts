@@ -1,5 +1,5 @@
 export const queryHome = `
-query PageInfoQuery {
+query Page {
   page(where: {slug: "home"}) {
     introduction {
       raw
@@ -18,6 +18,18 @@ query PageInfoQuery {
       iconSvg
       name
       startDate
+    }
+    highlightProjects {
+      slug
+      logo
+      thumbnail {
+        url
+      }
+      title
+      shortDescription
+      technologies {
+        name
+      }
     }
   }
 }

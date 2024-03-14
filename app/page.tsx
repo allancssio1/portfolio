@@ -16,8 +16,8 @@ export default async function Home() {
   return (
     <>
       <HeroSection data={data} />
-      <KnowTechs />
-      <HighlightedProjects />
+      <KnowTechs techs={data.page.knownTechs} />
+      <HighlightedProjects projects={data.page.highlightProjects} />
       <WorkExperience />
     </>
   )
