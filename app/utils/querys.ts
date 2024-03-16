@@ -21,7 +21,9 @@ query Page {
     }
     highlightProjects {
       slug
-      logo
+      logo {
+        url
+      }
       thumbnail {
         url
       }
@@ -30,6 +32,22 @@ query Page {
       technologies {
         name
       }
+    }
+  }
+  workExperiences {
+    companyLogo {
+      url
+    }
+    role
+    companyName
+    companyUrl
+    startDate
+    endDate
+    description {
+      raw
+    }
+    technologies {
+      name
     }
   }
 }

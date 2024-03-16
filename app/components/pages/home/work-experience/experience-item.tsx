@@ -1,7 +1,32 @@
+'use client'
+
 import Image from 'next/image'
 import { TechBadge } from '../../tech'
+import { IWorkExperiences } from '@/app/types/types-infos'
+import { myLoader } from '@/app/utils/myLoaderSVG'
+import { RichText } from '@/app/components/rich-text'
+import { differenceInMonths, format } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
+import { workingDates } from '@/app/utils/workingDates'
 
-export const ExperienceItem = () => {
+type WorkExperiencesProps = {
+  experience: IWorkExperiences
+}
+
+export const ExperienceItem = ({
+  experience: {
+    companyLogo,
+    companyName,
+    description,
+    endDate,
+    role,
+    startDate,
+    technologies,
+  },
+}: WorkExperiencesProps) => {
+  const { end_date_formated, formattedDuration, start_date_formated } =
+    workingDates({ startDate, endDate })
+
   return (
     <div className="grid grid-cols-[40px,1fr] gap-4 md:gap-10 ">
       <div className="flex flex-col items-center gap-4">
@@ -9,8 +34,9 @@ export const ExperienceItem = () => {
           <Image
             width={40}
             height={40}
-            src={'/images/logo.svg'}
-            alt=""
+            loader={myLoader}
+            src={(companyLogo && companyLogo.url) ?? ''}
+            alt="company logo"
             className="rounded-full"
           />
         </div>
@@ -23,29 +49,25 @@ export const ExperienceItem = () => {
             target="_blank"
             className="text-gray-500 hover:text-emerald-500 transition-colors "
           >
-            @ empresa
+            {companyName}
           </a>
 
-          <h4 className="text-gray-300">Dev Back-end</h4>
+          <h4 className="text-gray-300">{role}</h4>
 
-          <span className="text-green-500">jun 2021 - jun 2023 - (2 anos)</span>
+          <span className="text-green-500">
+            {start_date_formated} • {end_date_formated} • {formattedDuration}
+          </span>
           <p className="text-gray-400">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio omnis
-            aut nam dolore atque culpa saepe. Ratione, harum? Unde assumenda
-            eveniet ducimus nesciunt, et aliquam aut quam, facere similique
-            obcaecati at. Perspiciatis, quos! Alias molestias, voluptas quod
-            aliquam magni excepturi.
+            <RichText content={description.raw} />
           </p>
         </div>
         <p className="text-gray-400 text-sm mb-3 mt-6 font-semibold">
           Competências
         </p>
         <div className="flex gap-x-2 gap-y-3 flex-wrap lg:max-w-[350px mb-8] ">
-          <TechBadge name="NodeJs" />
-          <TechBadge name="NodeJs" />
-          <TechBadge name="NodeJs" />
-          <TechBadge name="NodeJs" />
-          <TechBadge name="NodeJs" />
+          {technologies.map((tec) => (
+            <TechBadge name={`${tec.name}`} key={tec.name} />
+          ))}
         </div>
       </div>
     </div>

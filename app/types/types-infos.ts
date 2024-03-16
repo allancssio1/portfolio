@@ -21,7 +21,9 @@ export type ProjectSection = {
 
 export type HighlightProjects = {
   slug: string
-  logo: string
+  logo: {
+    url: string
+  }
   thumbnail: {
     url: string
   }
@@ -33,6 +35,21 @@ export type HighlightProjects = {
   }
   liveProject?: string
   repository?: string
+}
+
+export type IWorkExperiences = {
+  companyLogo: {
+    url: string
+  }
+  role: string
+  companyName: string
+  companyUrl: string
+  startDate: string
+  endDate: string
+  description: {
+    raw: RichTextContent
+  }
+  technologies: KnownTech[]
 }
 
 export type HomePageInfo = {
@@ -55,9 +72,6 @@ export type HomePageInfo = {
         url: string
       }
     }
+    workExperiences: IWorkExperiences[]
   }
-}
-
-export type HomePageData = {
-  page: HomePageInfo
 }

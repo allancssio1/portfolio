@@ -15,10 +15,10 @@ export const fetchHygraphQuery = async ({ query, method }: QueryProps) => {
     body: query ? JSON.stringify({ query }) : '',
     next: {
       revalidate: 60 * 60 * 24, // 24 horas
+      // revalidate: 60 * 10, // 10 min
     },
   })
 
   const data = await response.json()
-
   return data
 }
