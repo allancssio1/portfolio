@@ -21,8 +21,6 @@ export const workingDates = ({ startDate, endDate }: workingDatesProps) => {
   const years = differenceInYears(end_date, start_date)
   const monthsRemaining = months % 12
 
-  console.log(months, years, monthsRemaining)
-
   const formattedDuration =
     years > 0
       ? `${years} ano${years > 1 ? 's' : ''}${
