@@ -12,6 +12,14 @@ export type Social = {
   iconSvg: string
 }
 
+export type ProjectsPageStaticData = {
+  data: {
+    projects: {
+      slug: string
+    }[]
+  }
+}
+
 export type ProjectSection = {
   title: string
   image: {
@@ -30,9 +38,13 @@ export type HighlightProjects = {
   title: string
   shortDescription: string
   technologies: KnownTech[]
-  pageThmbnail: {
+  pageThumbnail: {
     url: string
   }
+  description: {
+    raw: RichTextContent
+  }
+  sections: ProjectSection[]
   liveProject?: string
   repository?: string
 }
@@ -73,5 +85,11 @@ export type HomePageInfo = {
       }
     }
     workExperiences: IWorkExperiences[]
+  }
+}
+
+export type ProjectPageData = {
+  data: {
+    projects: HighlightProjects[]
   }
 }

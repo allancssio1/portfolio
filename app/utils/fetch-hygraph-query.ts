@@ -3,7 +3,10 @@ type QueryProps = {
   method: 'POST' | 'GET' | 'PATCH' | 'PUT' | 'DELETE'
 }
 
-export const fetchHygraphQuery = async ({ query, method }: QueryProps) => {
+export const fetchHygraphQuery = async <T>({
+  query,
+  method,
+}: QueryProps): Promise<T> => {
   // const response = {}
   const response = await fetch(process.env.HYGRAPH_URL!, {
     method,

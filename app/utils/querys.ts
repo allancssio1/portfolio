@@ -52,3 +52,57 @@ query Page {
   }
 }
 `
+
+export const queryProjects = `
+query ProjectsQuery {
+  projects {
+    shortDescription
+    slug
+    title
+    thumbnail {
+      url
+    }
+    technologies {
+      name
+    }
+  }
+}
+`
+
+export const queryProjectDetails = `
+query ProjectQuery() {
+  project(where: {slug: "[slug]"}) {
+    pageThumbnail {
+      url
+    }
+    thumbnail {
+      url
+    }
+    sections {
+      title
+      image {
+        url
+      }
+    }
+    title
+    shortDescription
+    description {
+      raw
+      text
+    }
+    technologies {
+      name
+    }
+    liveProject
+    repository
+  }
+}
+`
+
+export const queryProjectSlugs = `
+query ProjectsSlugsQuery() {
+  projects(first: 10) {
+    slug
+  }
+}
+`

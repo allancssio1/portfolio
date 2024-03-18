@@ -17,7 +17,7 @@ export const ProjectCard = ({
 }: IProjectCard) => {
   return (
     <div className="flex gap-6 lg:gap-12 flex-col lg:flex-row ">
-      <div className="w-full h-full max-w-[420px] max-h-[304px] relative">
+      <div className="w-full  h-[200px] sm:h-[300px] lg:w-[420px] lg:min-h-full relative">
         <Overlay companyName={title} />
         <Image
           width={420}
@@ -25,10 +25,10 @@ export const ProjectCard = ({
           loader={myLoader}
           alt={`Thumbnail do projeto ${title}`}
           src={(thumbnail && thumbnail.url) ?? ''}
-          className="w-full h-[200px] sm:h-[300px] lg:w-[420px] lg:min-h-full object-cover rounded-lg"
+          className="w-full h-full object-cover rounded-lg"
         />
       </div>
-      <div>
+      <div className="flex-1 lg:py-[18px]">
         <h3 className="flex items-center  gap-6 font-medium text-lg text-gray-50">
           <Image
             width={20}
@@ -51,7 +51,7 @@ export const ProjectCard = ({
             )
           })}
         </div>
-        <Link href={`/project/${slug}`}>
+        <Link href={`/projects/${slug}`}>
           Ver Projeto
           <HiArrowNarrowRight />
         </Link>
