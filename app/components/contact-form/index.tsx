@@ -26,7 +26,7 @@ export const ContactForm = () => {
 
   const onSubmit = async ({ name, email, message }: ContactFormData) => {
     try {
-      const response = await axios.post('/api/contact', {
+      await axios.post('/api/contact', {
         name,
         email,
         message,
