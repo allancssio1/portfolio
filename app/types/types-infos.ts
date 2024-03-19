@@ -43,6 +43,7 @@ export type HighlightProjects = {
   }
   description: {
     raw: RichTextContent
+    text: string
   }
   sections: ProjectSection[]
   liveProject?: string

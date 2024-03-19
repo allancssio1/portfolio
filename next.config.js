@@ -2,14 +2,14 @@
 const nextConfig = {
   experimental: {
     appDir: true,
+    serverComponentsExternalPackages: [
+      '@react-email/components',
+      '@react-email/render',
+      '@react-email/tailwind',
+    ],
   },
   images: {
     domains: ['media.graphassets.com'],
-    // domains: ['app-sa-east-1.hygraph.com'],
-    // remotePatterns: {
-    //   protocol: 'https',
-    //   hostname: 'app-sa-east-1.hygraph.com/',
-    // },
   },
 }
 

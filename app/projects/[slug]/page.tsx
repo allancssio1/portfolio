@@ -6,6 +6,7 @@ import {
 } from '@/app/types/types-infos'
 import { fetchHygraphQuery } from '@/app/utils/fetch-hygraph-query'
 import { queryProjectDetails, queryProjectSlugs } from '@/app/utils/querys'
+import { Metadata } from 'next'
 
 type PorjectProps = {
   params: {
@@ -43,6 +44,27 @@ export async function generateStaticParams() {
     method: 'POST',
   })
 
-  console.log('🚀 ~ generateStaticParams ~ data:', data)
   return data.projects
+}
+
+export async function generateMetadata({
+  params: { slug },
+}: PorjectProps): Promise<Metadata> {
+  const {
+    data: { project },
+  } = await getProjectDetailData(slug)
+
+  return {
+    title: project.title,
+    description: project.description.text,
+    openGraph: {
+      images: [
+        {
+          url: project.thumbnail.url,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  }
 }
