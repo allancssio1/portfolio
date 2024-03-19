@@ -5,9 +5,9 @@ import { TechBadge } from '../../tech'
 import { IWorkExperiences } from '@/app/types/types-infos'
 import { myLoader } from '@/app/utils/myLoaderSVG'
 import { RichText } from '@/app/components/rich-text'
-import { differenceInMonths, format } from 'date-fns'
-import { ptBR } from 'date-fns/locale'
 import { workingDates } from '@/app/utils/workingDates'
+import { motion } from 'framer-motion'
+import { techBadgeAnimation } from '@/app/lib/utils'
 
 type WorkExperiencesProps = {
   experience: IWorkExperiences
@@ -28,7 +28,13 @@ export const ExperienceItem = ({
     workingDates({ startDate, endDate })
 
   return (
-    <div className="grid grid-cols-[40px,1fr] gap-4 md:gap-10 ">
+    <motion.div
+      className="grid grid-cols-[40px,1fr] gap-4 md:gap-10 "
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 50 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="flex flex-col items-center gap-4">
         <div className="rounded-full border border-gray-500 p-0.5">
           <Image
@@ -65,11 +71,16 @@ export const ExperienceItem = ({
           Competências
         </p>
         <div className="flex gap-x-2 gap-y-3 flex-wrap lg:max-w-[350px mb-8] ">
-          {technologies.map((tec) => (
-            <TechBadge name={`${tec.name}`} key={tec.name} />
+          {technologies.map((tec, i) => (
+            <TechBadge
+              name={`${tec.name}`}
+              key={tec.name}
+              {...techBadgeAnimation}
+              transition={{ duration: 0.2, delay: i * 0.1 }}
+            />
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
